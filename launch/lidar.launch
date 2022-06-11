@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+    <param name="serial_port"         type="string" value="/dev/ttyACM1"/>
+    <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
+    <!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
+    <param name="frame_id"            type="string" value="laser_frame"/>
+    <param name="inverted"            type="bool"   value="false"/>
+    <param name="angle_compensate"    type="bool"   value="true"/>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_laser"
+    args="0 0.0 0.1 3.14 0.0 0.0 /base_footprint /laser_frame 20" />
+  
+</launch>

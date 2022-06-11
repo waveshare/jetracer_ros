@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="lang_type" default="en"/>
+
+  <!--en_us -->
+  <group if="$(eval arg('lang_type') == 'en')">
+    <node name="tts_en"  pkg="jetracer"  type="tts_en.py" output="screen" />
+  </group>
+ 
+  <!--zh_cn -->
+  <group if="$(eval arg('lang_type') == 'cn')">
+    <node name="tts_cn"  pkg="jetracer"  type="tts_cn.py" output="screen" respawn="false" >
+        <param name="APPID" value="58e61263"/>
+        <param name="API_KEY" value="36d5946d3501388b423ce66f633385f9"/>
+        <param name="API_SECRET" value="dffb2043eeb3624eff11f4df0fd84d7d"/>
+    </node>
+  </group>
+  
+</launch>

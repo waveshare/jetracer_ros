@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="map_type" default="gmapping" doc="opt:gmapping,hector,karto,cartographer"/>
+    
+  <include file="$(find jetracer)/launch/jetracer.launch" />
+
+  <include file="$(find jetracer)/launch/lidar.launch" />
+
+  <include file="$(find jetracer)/launch/csi_camera.launch" /> 
+  
+  <include file="$(find jetracer)/launch/$(arg map_type).launch" /> 
+
+</launch>

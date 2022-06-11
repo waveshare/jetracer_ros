@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find jetracer)/launch/lidar.launch" />
+
+  <node name="laser_filter" pkg="jetracer" type="laser_filter.py" output="screen" />
+
+</launch>

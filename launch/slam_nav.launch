@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="use_sim_time" value="false"/>
+  
+	<include file="$(find jetracer)/launch/jetracer.launch" />
+
+  <include file="$(find jetracer)/launch/lidar.launch" />
+
+  <include file="$(find jetracer)/launch/csi_camera.launch" /> 
+  
+  <include file="$(find jetracer)/launch/gmapping.launch" /> 
+    
+	<!-- Start path planning algorithm package -->
+	<include file="$(find jetracer)/launch/move_base.launch"/>
+  
+</launch>
+

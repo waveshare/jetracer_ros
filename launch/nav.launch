@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find jetracer)/launch/jetracer.launch" />
+
+  <include file="$(find jetracer)/launch/lidar.launch" />
+
+  <include file="$(find jetracer)/launch/csi_camera.launch" /> 
+
+	<!-- Start the map server function pack and publish the map -->
+	<arg name="map_file" default="$(find jetracer)/maps/mymap.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+	<!--Start AMCL Adaptive Monte Carlo positioning algorithm package -->
+	<include file="$(find jetracer)/launch/amcl.launch" />
+    
+	<!-- Start path planning algorithm package -->
+	<include file="$(find jetracer)/launch/move_base.launch"/>
+  
+</launch>

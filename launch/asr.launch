@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="lang_type" default="en"/>
+      
+  <!--en_us -->
+  <group if="$(eval arg('lang_type') == 'en')">
+    <node name="iat_cn"  pkg="jetracer"  type="vad.py" output="screen" >
+      <param name="Mode" value="asr_en"/>
+      <param name="Path" value="$(find jetracer)"/>
+    </node>
+  </group>
+ 
+  <!--zh_cn -->
+  <group if="$(eval arg('lang_type') == 'cn')">
+    <node name="iat_cn"  pkg="jetracer"  type="vad.py" output="screen" >
+      <param name="Mode" value="asr_cn"/>
+      <param name="Path" value="$(find jetracer)"/>
+    </node>
+  </group>
+  
+</launch>
