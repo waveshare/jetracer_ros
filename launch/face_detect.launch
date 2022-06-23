@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="cam_name" default="csi_cam_0" />
+  <arg name="topic_name" default="face_detect" />
+  <arg name="file_name" default="$(find jetracer)/data/haarcascade_frontalface_alt2.xml" />
+
+  <node pkg="jetracer" type="face_detect.py" name="face_detect" output="screen">
+    <param name="camera_name"  value="$(arg cam_name)" />
+    <param name="topic_name"  value="$(arg topic_name)" />
+    <param name="file_name"  value="$(arg file_name)" />
+  </node>
+
+</launch>
+

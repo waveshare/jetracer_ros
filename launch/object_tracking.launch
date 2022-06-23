@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="cam_name" default="csi_cam_0" />
+  <arg name="topic_name" default="object_tracking" />    
+  <arg name="tracker_type" default="MOSSE" 
+	doc="tracker_type:= ['BOOSTING', 'MIL', 'KCF', 'TLD', 'MEDIANFLOW', 'GOTURN', 'MOSSE', 'CSRT']"/>
+
+  <node pkg="jetracer" type="object_tracking.py" name="object_tracking" output="screen">
+        <param name="camera_name"  value="$(arg cam_name)" />
+	<param name="topic_name"  value="$(arg topic_name)" />
+	<param name="tracker_type"  value="$(arg tracker_type)" />
+   </node>
+
+</launch>
+

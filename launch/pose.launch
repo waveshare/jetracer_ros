@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="cam_name" default="csi_cam_0" />
+  <arg name="topic_name" default="AR_image" />
+
+  <node pkg="jetracer" type="pose.py" name="pose" output="screen">
+        <param name="camera_name"  value="$(arg cam_name)" />
+	<param name="topic_name"  value="$(arg topic_name)" />
+   </node>
+
+</launch>
+

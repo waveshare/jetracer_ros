@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="cam_name" default="csi_cam_0" />
+  <arg name="topic_name" default="line_follow" />
+
+  <node pkg="jetracer" type="line_follow.py" name="line_follow" output="screen">
+        <param name="camera_name"  value="$(arg cam_name)" />
+	<param name="topic_name"  value="$(arg topic_name)" />
+   </node>
+
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen"/>
+
+</launch>
+
