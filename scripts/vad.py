@@ -62,7 +62,7 @@ def run(cmd):
 if __name__ == '__main__':
     rospy.init_node('jetracer_vad_node')
     Mode = rospy.get_param('~Mode','play')
-    Path = rospy.get_param('~Path','/home/jetson/catkin_ws/src/jetracer')
+    Path = rospy.get_param('~Path','/home/jetson/catkin_ws/src/jetracer_ros')
     textfile = Path + "/data/talk.txt"
     pub = rospy.Publisher('chatter', String, queue_size=10)
     print(textfile)
@@ -179,7 +179,7 @@ if __name__ == '__main__':
                 run("play -q " + Path + "/data/demo.mp3")
                 run("rm -r " + Path + "/data/demo.mp3")
         elif Mode == "asr_en":
-            run("~/env/bin/python3 " + Path + "/scripts/ginput.py -i " + Path + "/data/record.wav -o  " + Path + "/data/test.wav")
+            run("~/google/bin/python3 " + Path + "/scripts/ginput.py -i " + Path + "/data/record.wav -o  " + Path + "/data/test.wav")
             if os.path.exists(textfile):
                 s=None
                 with open(textfile,"r") as f:
@@ -189,7 +189,7 @@ if __name__ == '__main__':
                     pub.publish(s[0].strip('\n'))
                 run("rm -r " + textfile)
         elif Mode == "talk_en":
-            run("~/env/bin/python3 " + Path + "/scripts/ginput.py -i " + Path + "/data/record.wav -o  " + Path + "/data/test.wav")
+            run("~/google/bin/python3 " + Path + "/scripts/ginput.py -i " + Path + "/data/record.wav -o  " + Path + "/data/test.wav")
             if os.path.exists(textfile):
                 s=None
                 with open(textfile,"r") as f:

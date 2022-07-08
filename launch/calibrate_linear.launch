@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    
+  <include file="$(find jetracer)/launch/jetracer.launch" />
+
+  <node name="calibrate_linear"  pkg="jetracer"  type="calibrate_linear.py" output="screen" />
+
+</launch>
